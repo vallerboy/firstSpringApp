@@ -13,11 +13,13 @@
         th:style="${'color: ' + (getCredit ? 'green' : 'red')}">
     </h1>
 
-    <form th:if="${getCredit == null}" action="/form" method="post">
-        <input type="number" name="salary" placeholder="Salary"><br/>
-        <input type="number" name="currentCredits" placeholder="Current Credits"><br/>
-        <input type="number" name="creditAmount" placeholder="Credit Amount"><br/>
-        <input type="number" name="creditTime" placeholder="Credit Time"><br/>
+    <form th:if="${getCredit == null}" action="/form" method="post"
+          th:object="${creditObject}">
+
+        <input type="number" th:field="*{salary}" placeholder="Salary"><br/>
+        <input type="number" th:field="*{expenses}" placeholder="Current Credits"><br/>
+        <input type="number" th:field="*{creditAmount}" placeholder="Credit Amount"><br/>
+        <input type="number" th:field="*{creditTime}" placeholder="Credit Time"><br/>
         <input type="submit" value="Submit">
     </form>
 </div>
